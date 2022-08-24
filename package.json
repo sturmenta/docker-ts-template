@@ -1,0 +1,23 @@
+{
+  "name": "docker-ts-template",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1"
+  },
+  "scripts": {
+    "docker:build": "docker build -t docker-ts-template:latest .",
+    "docker:run": "docker run --env-file .env -dp 3000:3000 docker-ts-template:latest",
+    "docker:delete-images": "docker rm -f $(docker ps -a -q)",
+    "docker:logs": "docker logs -f $(docker ps -a -q)",
+    "───────────────────────────────": "─────────────────────────────────",
+    "start": "yarn docker:build; yarn docker:run; yarn docker:logs",
+    "restart": "yarn docker:delete-images; yarn start",
+    "────────────────────────────────": "─────────────────────────────────",
+    "docker:build-prod": "echo Image tag?; read _tag; docker build --platform linux/amd64 -t sturmenta/docker-ts-template:$_tag .",
+    "docker:push-prod": "echo Image tag?; read _tag; docker push sturmenta/docker-ts-template:$_tag",
+    "docker:build-and-push-prod": "echo Image tag?; read _tag; docker build --platform linux/amd64 -t sturmenta/docker-ts-template:$_tag .; docker push sturmenta/docker-ts-template:$_tag"
+  }
+}

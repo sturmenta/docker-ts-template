@@ -1,2 +1,13 @@
 # docker-ts-template
-small docker boilerplate working with ts
+
+## Description:
+
+> small docker boilerplate working with ts
+
+## Start
+
+    yarn start
+
+## After modify code
+
+    yarn restart
