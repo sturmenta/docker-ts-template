@@ -8,20 +8,14 @@
     "express": "^4.18.1"
   },
   "scripts": {
-    "dev": "ts-node-dev src/index.ts",
+    "dev": "ts-node-dev --poll src/index.ts",
     "build": "rimraf ./dist; tsc",
-    "──────────────────────────────": "─────────────────────────────────",
-    "docker:build": "docker build -t docker-ts-template:latest .",
-    "docker:run": "docker run --env-file .env -dp 3000:3000 docker-ts-template:latest",
-    "docker:delete-images": "docker rm -f $(docker ps -a -q)",
-    "docker:logs": "docker logs -f $(docker ps -a -q)",
-    "───────────────────────────────": "─────────────────────────────────",
-    "start": "yarn build; yarn docker:build; yarn docker:run; yarn docker:logs",
-    "restart": "yarn docker:delete-images; yarn start",
-    "────────────────────────────────": "─────────────────────────────────",
-    "docker:build-prod": "echo Image tag?; read _tag; docker build --platform linux/amd64 -t sturmenta/docker-ts-template:$_tag .",
-    "docker:push-prod": "echo Image tag?; read _tag; docker push sturmenta/docker-ts-template:$_tag",
-    "docker:build-and-push-prod": "echo Image tag?; read _tag; docker build --platform linux/amd64 -t sturmenta/docker-ts-template:$_tag .; docker push sturmenta/docker-ts-template:$_tag"
+    "────────────────────────────": "─────────────────────────────────",
+    "docker:build-local-prod": "docker build --target production -t sturmenta/docker-ts-template:latest .",
+    "docker:run-local-prod": "docker run --env-file ./.env -dp 4000:4000 sturmenta/docker-ts-template:latest",
+    "─────────────────────────────": "─────────────────────────────────",
+    "docker:dev": "docker compose -f docker-compose.dev.yml up --build",
+    "docker:build-and-push-prod": "echo Image tag?; read _tag; docker build --target production --platform linux/amd64 -t sturmenta/docker-ts-template:$_tag .; docker push sturmenta/docker-ts-template:$_tag"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
