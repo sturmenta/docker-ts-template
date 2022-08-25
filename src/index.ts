@@ -10,6 +10,4 @@ app.get("/", async (req: Request, res: Response) => {
   return res.json({ status: "success" });
 });
 
-// ────────────────────────────────────────────────────────────────────────────────
-
-app.listen(3000, () => console.log(`Server running on port 3000`));
+app.listen(4000, () => console.log(`Server running on port 4000`));
