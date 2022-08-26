@@ -16,7 +16,7 @@ use [thunder client](https://marketplace.visualstudio.com/items?itemName=rangav.
 
 ---
 
-## build and push
+## build and push to docker-hub
 
     yarn docker:build-and-push-prod
 
