@@ -7,6 +7,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get("/", async (req: Request, res: Response) => {
+  console.log(`process.env.MY_SUPER_PASSWORD`, process.env.MY_SUPER_PASSWORD);
+
   return res.json({ status: "success!!" });
 });
 

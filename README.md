@@ -8,7 +8,7 @@
 
 ## testing locally
 
-    yarn docker:dev
+    yarn start
 
 ## When docker app running
 
@@ -18,7 +18,7 @@ use [thunder client](https://marketplace.visualstudio.com/items?itemName=rangav.
 
 ## build and push to docker-hub
 
-    yarn docker:build-and-push-prod
+    yarn push-prod
 
 <!-- // enter to shell inside docker image -->
 <!--  -->
